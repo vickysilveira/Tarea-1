@@ -105,5 +105,5 @@ ggplot(gapminder, aes(year, pop, group = continent, color = continent)) +
          labs(x="Años", y="Poblacion")
 ```
 
-
+Decidi observar el aumento de poblacion de cada continente con el paso del tiempo. Se puede apreciar perfectamente que por ejempo Asia a teniado un gran aumento de mas del doble de poblacion en los ultimos 50 años. Tambien se ve como Oceania, Europa y Africa a mantenido una poblacion bastante constante. Y por ultimo que America a aumentado, no al nivel de Asia pero si a tenido un gran aumento.
 
