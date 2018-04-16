@@ -9,22 +9,99 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Ejercicio 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### Consigna
 
-```{r cars}
-summary(cars)
+Hacer un gráfico de dispersión que tenga en el eje y year y en el eje x lifeExp, los puntos deben estar
+coloreados por la variable continent. Para este plot ajustá una recta de regresión para cada continente sin
+incluir las barras de error. Las etiquetas de los ejes deben ser claras y describir las variables involucradas.
+Incluir un caption en la figura con algún comentario de interés que describa el gráfico.
+
+### Respuesta
+
+```{r echo=TRUE}
+library(ggplot2)
+library(gapminder)
+ggplot(gapminder, aes(lifeExp,year, colour=continent)) + 
+  labs(x="Experiencia de vida", y="Años") + 
+  geom_point() + 
+  geom_smooth(se=FALSE)
+```
+En esta grafica se muestra perfectamente como a lo largo de los años la experiencia de vida fue aumentando. Como tambien se ve que como el aumento varia segun cada continente.
+
+
+## Ejercicio 2
+
+
+### Consigna
+
+Omitir la capa de geom_point del gráfico anterior. Las lineas aún aparecen aunque los puntos no. ¿Porqué
+sucede esto?
+
+### Respuesta
+
+Esto sucede debido a que la unica representacion de queda es la de shooth (las lineas).
+
+
+## Ejercicio 3
+
+
+### Consigna
+
+El siguiente es un gráfico de dispersión entre `lifeExp` y `gdpPercap`  coloreado por la variable `continent`. Usando como elemento estético color (`aes`) nosotros podemos distinguir los distintos continentes usando diferentes colores de similar manera usando forma (`shape`).
+
+```{r, echo = FALSE}
+ggplot(gapminder, aes(gdpPercap, lifeExp, colour = continent)) +
+    geom_point() 
 ```
 
-## Including Plots
+El gráfico anterior está sobrecargado, ¿de que forma modificarías el gráfico para que sea más clara la comparación para los distintos continentes y porqué?
+Las etiquetas de los ejes deben ser claras y describir las variables involucradas. Comentá alguna característica interesante que describa lo que aprendes viendo el gráfico.
 
-You can also embed plots, for example:
+### Respuesta
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Quedaria mejor representado de la sigiente manera ya que todos los datos se agrupan en una linea e inclui las baras de error para no perder datos dispersos.
+
+```{r, echo = TRUE}
+ggplot(gapminder, aes(gdpPercap, lifeExp, colour = continent)) + 
+  geom_smooth() +
+  labs(x="PBI per capita",y="Experiencia de vida")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+PBI per capita es el valor total de todos los bienes y servicios producidos por un país en un año determinado, dividido por el número de personas que viven allí.
+
+
+## Ejercicio 4
+
+
+### Consigna
+
+Hacer un gráfico de lineas que tenga en el eje `x` `year` y en el eje `y`  `gdpPercap` para cada continente en una misma ventana gráfica. En cada continente, el gráfico debe contener una linea para cada país a lo largo del tiempo (serie de tiempo de `gdpPercap`). Las etiquetas de los ejes deben ser claras y describir las variables involucradas. Incluir un `caption` en la figura con algún comentario de interés que describa el gráfico.
+
+### Respuesta
+
+```{r, echo = TRUE}
+ggplot(gapminder, aes(year, gdpPercap, group = country)) +
+         geom_line() +
+         facet_wrap(~continent) +
+         labs(x="Años", y="PBI per capita")
+```
+
+
+## Ejercicio 5 
+
+
+### Consigna
+
+Usando los datos `gapminder` seleccione una visualización que describa algún aspecto de los datos que no exploramos. Comente algo interesante que se puede aprender de su gráfico.
+
+### Respuesta
+
+```{r, echo=TRUE}
+ggplot(gapminder, aes(year, pop, group = country,)) +
+         geom_line() +
+         facet_wrap(~continent) +
+         labs(x="Años", y="Poblacion")
+´´´
