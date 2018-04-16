@@ -99,9 +99,11 @@ Usando los datos `gapminder` seleccione una visualización que describa algún a
 
 ### Respuesta
 
-```{r, echo=TRUE}
-ggplot(gapminder, aes(year, pop, group = country,)) +
-         geom_line() +
-         facet_wrap(~continent) +
+```{r,echo=TRUE}
+ggplot(gapminder, aes(year, pop, group = continent, color = continent)) + 
+         geom_smooth(se=FALSE) +
          labs(x="Años", y="Poblacion")
-´´´
+```
+
+
+
