@@ -31,6 +31,11 @@ ggplot(gapminder, aes(lifeExp,year, colour=continent)) +
 ```
 En esta grafica se muestra perfectamente como a lo largo de los años la experiencia de vida fue aumentando. Como tambien se ve que como el aumento varia segun cada continente.
 
+\fbox{\begin{minipage}{48em}
+deberiías usar el meétodo lm porque quiero el ajuste con una recta de regresión, geom_smooth(method = lm, se = FALSE).
+Faltan todos los tildes, usar corrector ortográfico.
+\end{minipage}}
+
 
 ## Ejercicio 2
 
@@ -44,6 +49,9 @@ sucede esto?
 
 Esto sucede debido a que la unica representacion de queda es la de shooth (las lineas).
 
+\fbox{\begin{minipage}{48em}
+Faltó incluir el gráfico, respuesta muy incompleta ver solución
+\end{minipage}}
 
 ## Ejercicio 3
 
@@ -60,6 +68,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, colour = continent)) +
 El gráfico anterior está sobrecargado, ¿de que forma modificarías el gráfico para que sea más clara la comparación para los distintos continentes y porqué?
 Las etiquetas de los ejes deben ser claras y describir las variables involucradas. Comentá alguna característica interesante que describa lo que aprendes viendo el gráfico.
 
+
 ### Respuesta
 
 Quedaria mejor representado de la sigiente manera ya que todos los datos se agrupan en una linea e inclui las baras de error para no perder datos dispersos.
@@ -72,6 +81,9 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, colour = continent)) +
 
 PBI per capita es el valor total de todos los bienes y servicios producidos por un país en un año determinado, dividido por el número de personas que viven allí.
 
+\fbox{\begin{minipage}{48em}
+Incompleto, faltó incluir el título de la figura, lo podeés hacer en el chunck con `fig.cap="Gráfico....." ` Ver solución
+\end{minipage}}
 
 ## Ejercicio 4
 
@@ -89,6 +101,9 @@ ggplot(gapminder, aes(year, gdpPercap, group = country)) +
          labs(x="Años", y="PBI per capita")
 ```
 
+\fbox{\begin{minipage}{48em}
+Incompleto, faltoó incluir el título de la figura e incluir alguún comentario interesante de la misma `. Ver solución
+\end{minipage}}
 
 ## Ejercicio 5 
 
@@ -106,4 +121,15 @@ ggplot(gapminder, aes(year, pop, group = continent, color = continent)) +
 ```
 
 Decidi observar el aumento de poblacion de cada continente con el paso del tiempo. Se puede apreciar perfectamente que por ejempo Asia a teniado un gran aumento de mas del doble de poblacion en los ultimos 50 años. Tambien se ve como Oceania, Europa y Africa a mantenido una poblacion bastante constante. Y por ultimo que America a aumentado, no al nivel de Asia pero si a tenido un gran aumento.
+
+
+\fbox{\begin{minipage}{48em}
+Incluir el título de la figura
+\end{minipage}}
+
+
+
+\fbox{\begin{minipage}{48em}
+Revisar la solución colgada en EVA, hay que revisar la ortografía. Acordate para las proximas entregas incluir en los graáficos el título y un comentario interesante de lo que ves o aprendes con esa visualización. PUNTOS 80/100
+\end{minipage}}
 
